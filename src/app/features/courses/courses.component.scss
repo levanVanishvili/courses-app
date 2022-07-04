@@ -1,0 +1,55 @@
+.app-courses-header {
+    display: flex;
+    background-color: #fff;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+    border: 1px solid #d8d8d8;
+    border-color: red;
+    box-shadow: 0px 1px 2px #DDDDE3,
+          0px 2px 4px #DDDDE3;
+}
+
+.app-header {
+    display: flex;
+    margin-left: 80%;
+}
+
+.app-header-name {
+    margin-right: 20px;
+}
+
+.app-header-logout {
+    border-color: purple;
+}
+
+.app-courses-list {
+    display: flex;
+    background-color: #fff;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+    border: 1px solid #d8d8d8;
+    border-color: green;
+    box-shadow: 0px 1px 2px #DDDDE3,
+          0px 2px 4px #DDDDE3;
+}
+
+.app-courses-content1 {
+    margin-right: 100px;
+
+}
+
+.app-courses-content2 {
+    margin-left: 50px;
+
+}
+
+span {
+    color:burlywood;
+}
+
+button {
+    border-color: purple;
+    margin-left: 10px;
+}

@@ -1,0 +1,28 @@
+<div class="app-courses-header">
+    <div class="app-header-image">
+        <img alt="no image" width="100" src="{{ courseImagePath }}" />
+    </div>
+    <div class="app-header">
+        <div class="app-header-name">
+            {{name}}
+        </div>
+        <div class="app-header-logout">
+            <button>Logout</button>
+        </div>
+    </div>    
+</div>
+<div class="app-courses-list" *ngFor="let courseCard of courseCards">
+    <div class="app-courses-content1">
+        <h1>{{courseCard.title}}</h1>
+        <div>{{courseCard.description}}</div>
+    </div>
+    <div class="app-courses-content2">
+        <h3>Authors: <span>{{courseCard.authors}}</span></h3>
+        <h3>Duration: <span>{{transDurationToHours(courseCard.duration)}}</span></h3>
+        <h3>Created: <span>{{courseCard.creationDate}}</span></h3>
+        <button>Show courses</button>
+        <button><i class="fa-solid fa-pencil"></i></button>
+        <button><i class="fa-solid fa-trash"></i></button>
+    </div>
+</div>
+<ng-content></ng-content>
