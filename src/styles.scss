@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+button {
+    border-color: rgb(221, 54, 221);
+}
+
+button:hover {
+    border-color: purple;
+    margin-right: 10px;
+    background-color: plum;
+}
+
+span {
+    color:burlywood;
+}

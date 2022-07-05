@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { mockedCourseList } from './mocks';
-import { courseCard } from './types';
+import { CourseCard } from "../course-card/course-card";
 
 @Component({
   selector: 'app-courses',
@@ -8,23 +8,13 @@ import { courseCard } from './types';
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
-  public courseImagePath: string = '';
-  public courseCards: courseCard [] = [];
-  public name: string = 'Dave';
+  public courses: CourseCard [] = [];
 
   constructor() { 
     
   }
 
   ngOnInit(): void {
-    this.courseImagePath = './assets/images/logo.svg'
-    this.courseCards = mockedCourseList;
-  }
-
-  public transDurationToHours(number: number) {
-    const hoursValue = Math.floor(number / 60);
-    const minutes = Math.floor(number % 60);
-    const hours = hoursValue < 10? '0' + hoursValue : hoursValue;
-    return  hours + ':' + minutes + ' hours';
-  }
+    this.courses = mockedCourseList;
+  }  
 }

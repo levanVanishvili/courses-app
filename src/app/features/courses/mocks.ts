@@ -1,6 +1,6 @@
-import { courseCard } from "./types";
+import { CourseCard } from "../course-card/course-card";
 
-export const mockedCourseList: courseCard[] = [
+export const mockedCourseList: CourseCard[] = [
   {
     id: "de5aaa59-90f5-4dbc-b8a9-aaf205c551ba",
     title: "JavaScript",

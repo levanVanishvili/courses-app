@@ -1,0 +1,18 @@
+<div class="row app-courses-list" *ngFor="let courseCard of courseCards">    
+    <div class="col-10">
+        <h1>{{courseCard.title}}</h1>
+        <div>{{courseCard.description}}</div>
+    </div>
+    <div class="col-2">
+        <h6>Authors: <span>{{courseCard.authors}}</span></h6>
+        <h6>Duration: <span>{{transDurationToHours(courseCard.duration)}}</span></h6>
+        <h6>Created: <span>{{courseCard.creationDate}}</span></h6>
+        <button class="btn-show-courses">Show courses</button>
+        <button class="btn-edit-courses">
+            <fa-icon [icon]="faPen"></fa-icon>
+        </button>
+        <button class="btn-delete-courses">
+            <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
+    </div>
+</div>
