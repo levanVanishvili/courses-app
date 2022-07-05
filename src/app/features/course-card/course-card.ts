@@ -5,4 +5,5 @@ export interface CourseCard {
     creationDate: string,
     duration: number,
     authors: string[]
+    isEditable: boolean
 }

@@ -1,1 +1,17 @@
-<app-course-card [courseCards]="courses"></app-course-card>
+<app-info [listIsEmpty]="courseListIsEmpty">
+    <div class="text-center" *ngIf="courseListIsEmpty">
+        <h1>Your list is empty</h1>
+        <p>
+            Please use the <span>"Add new course"</span> button to add your first course
+        </p>
+    </div>
+    <div class="text-center">
+        <app-common-button [buttonText]="'Add new course'"></app-common-button>
+    </div>
+</app-info>
+<app-course-card 
+   [courseCards]="courses" 
+   (deleteCard)="onDeleteCard($event)" 
+   (editCard)="onEditCard($event)">
+</app-course-card>
+<app-modal-window></app-modal-window>
