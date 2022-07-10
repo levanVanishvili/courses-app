@@ -1,12 +1,7 @@
-<div class="row app-courses-header">
-    <div class="col-10">
-        <app-header></app-header>
-    </div>
-    <div class="col-2">
-        <app-login class="login">
-            <h3 class="name">Dave</h3>
-            <button class="button">Logout</button>
-        </app-login>
-    </div>
-</div>
+<app-header>
+    <h3 class="name">Dave</h3>
+    <app-button class="login" [buttonText]="'LogOut'"></app-button>
+</app-header>
+<app-login></app-login>
+
 <app-courses></app-courses>

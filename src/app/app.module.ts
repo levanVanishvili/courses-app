@@ -7,6 +7,7 @@ import { CoursesModule } from './features/courses/courses.module';
 import { LoginComponent } from './features/login/login.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './features/header/header.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HeaderComponent } from './features/header/header.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SharedModule,
     CoursesModule,
     FontAwesomeModule,    
   ],

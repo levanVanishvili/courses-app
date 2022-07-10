@@ -8,7 +8,8 @@ import { ModalWindowComponent } from './modal-window.component';
 @NgModule({
   declarations: [ModalWindowComponent],
   imports: [
-    CommonModule, SharedModule
+    CommonModule, 
+    SharedModule
   ],
   exports: [
     ModalWindowComponent
