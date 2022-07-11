@@ -1,1 +1,24 @@
-<ng-content></ng-content>
+<div class="border border-primary app-login">
+    <h2 class="text-center">Login</h2>
+    <form form="ngForm" (ngSubmit)="login()">
+        <div class="text-center">
+            <p>
+                <label for="Email">Email</label>
+            </p>
+            <input type="email" name="email" required appEmailValidator/>
+            <span class="error-message"></span>
+            <p>
+                <label for="password">password</label>
+            </p>
+            <input type="password" name="password" required />
+            <span class="error-message"></span>
+            <p>
+                <app-button type="submit" [buttonText]="'Login'"></app-button>
+            </p>
+            <p>
+                If you don't have an account you can Registration
+            </p>
+        </div>
+
+    </form>
+</div>
