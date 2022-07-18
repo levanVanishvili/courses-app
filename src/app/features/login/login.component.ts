@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-login',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  public email = '';
+  public password = '';
+  faEye = faEye
+  faEyeSlash = faEyeSlash
 
   constructor() { }
 
@@ -13,7 +18,6 @@ export class LoginComponent implements OnInit {
   }
 
   public login(): void {
-    // do login...
   }
 
 }

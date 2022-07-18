@@ -8,7 +8,7 @@ export function customEmailvalidator(): ValidatorFn {
             return null;
         }
 
-        const validEmail = /[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]+/.test(value);
+        const validEmail = /[a-z0-9._%+-]+@[a-z0-9.-]/.test(value);
 
         return !validEmail ? {emailValidator:true} : null
     }
