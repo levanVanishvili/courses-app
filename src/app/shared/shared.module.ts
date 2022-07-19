@@ -10,6 +10,7 @@ import { DurationPipe } from './pipes/duration.pipe';
 import { CreationDatePipe } from './pipes/creation-date.pipe';
 import { StringJoinerPipe } from './pipes/string-joiner.pipe';
 import { TogglePasswordDirective } from './directives/toggle-password.directive';
+import { ControlErrorDirective } from './directives/control-error.directive';
 
 
 
@@ -20,6 +21,7 @@ import { TogglePasswordDirective } from './directives/toggle-password.directive'
     CreationDatePipe,
     StringJoinerPipe,
     TogglePasswordDirective,
+    ControlErrorDirective,
   ],
   imports: [
     CommonModule,

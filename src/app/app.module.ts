@@ -10,6 +10,7 @@ import { HeaderComponent } from './features/header/header.component';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistrationComponent } from './features/registration/registration.component';
+import { CourseComponent } from './features/course/course.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { RegistrationComponent } from './features/registration/registration.comp
     LoginComponent,
     HeaderComponent,
     RegistrationComponent,
+    CourseComponent
   ],
   imports: [
     BrowserModule,
