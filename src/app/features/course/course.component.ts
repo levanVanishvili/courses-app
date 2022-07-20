@@ -11,7 +11,15 @@ export class CourseComponent implements OnInit {
   public isAddMode: boolean = true;
   public submitted = false;
 
-  constructor(private formBuilder: FormBuilder,) { }
+  constructor(private formBuilder: FormBuilder,) {    
+    this.form = this.formBuilder.group ({
+      title: ['', Validators.required],
+      authorName: ['', Validators.pattern('^[a-zA-Z0-9]*$')],
+      description: ['', Validators.required],
+      duration: ['', Validators.required, Validators.minLength(0)],
+      authors: this.formBuilder.array([]) ,
+    })
+   }
 
   public get title() {
     return this.form.get('title');
@@ -34,13 +42,6 @@ export class CourseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group ({
-      title: ['', Validators.required],
-      authorName: ['', Validators.pattern('^[a-zA-Z0-9]*$')],
-      description: ['', Validators.required],
-      duration: ['', Validators.required, Validators.minLength(0)],
-      authors: this.formBuilder.array([]) ,
-    })
   }
 
   public onSubmit(){

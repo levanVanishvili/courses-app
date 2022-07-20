@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoursesModule } from './features/courses/courses.module';
 import { LoginComponent } from './features/login/login.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './features/header/header.component';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -26,7 +25,6 @@ import { CourseComponent } from './features/course/course.component';
     FormsModule,
     SharedModule,
     CoursesModule,
-    FontAwesomeModule,
     ReactiveFormsModule,    
   ],
   providers: [],

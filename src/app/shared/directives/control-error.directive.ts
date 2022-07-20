@@ -7,7 +7,7 @@ import { merge } from 'rxjs';
 })
 export class ControlErrorDirective implements OnInit {
   @Input() public appControlError!: FormControl | NgModule
-  @Input() public stateMatcher!: FormControl | NgModule
+  @Input() public stateMatch!: FormControl | NgModule
   @Input() public controlName!: FormControlName;
   @Input() public elementError?: string;
   @Input() public errorsDescription ?: string;
@@ -28,13 +28,13 @@ export class ControlErrorDirective implements OnInit {
     }); */
    }
 
-  public StateMatcher(control: FormControl, form:
+  public stateMatcher(control: FormControl, form:
     FormGroupDirective | NgForm): boolean {
       console.log(control, form)
       if (control){
-        return control?.dirty && control?.touched && control.errors?.['required'];
+        return control.dirty && control.touched && control.errors?.['required'];
       } else {
-        return  form?.dirty && form?.touched && form.errors?.['required'];
+        return  form.dirty && form.touched && form.errors?.['required'];
       }      
     }
 

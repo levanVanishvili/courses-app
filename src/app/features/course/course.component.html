@@ -1,31 +1,26 @@
 <form class="app-course" [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-group row">
-        <label for="exampleFormControlInput1">Titles</label>
+        <label for="formControlTitle">Title</label>
         <div class="col-10">
             <input type="text" class="form-control" formControlName="title" id="exampleFormControlInput1"
                 placeholder="title" [ngClass]="{ 'is-invalid': submitted && title?.errors }">
-            <div *ngIf="submitted && title?.errors" class="invalid-feedback">
-                <div *ngIf="title?.errors?.['required']">
+                <div *ngIf="submitted && title?.errors?.['required']" class="invalid-feedback">
                     title is required
                 </div>
-            </div>
         </div>
         <div class="form-group col-2">
             <button type="submit" class="btn btn-primary">Create Course</button>
         </div>
     </div>
     <div class="form-group">
-        <label for="exampleFormControlTextarea1">Description</label>
+        <label for="formControlDescription">Description</label>
         <textarea class="form-control" formControlName="description" id="exampleFormControlTextarea1" rows="6"
             [ngClass]="{ 'is-invalid': submitted && description?.errors }"></textarea>
-        <div *ngIf="submitted && description?.errors" class="invalid-feedback">
-            <div *ngIf="description?.errors?.['required']">
-                description is required
-            </div>
+        <div *ngIf="submitted && description?.errors?.['required']" class="invalid-feedback">
+            description is required
         </div>
     </div>
-    <div class="app-add-author">
-        <div class="form-group">
+    <div class="app-add-author form-group">
             <div class="row">
                 <div class="row col-6">
                     <h1 class="app-author">Add author</h1>
@@ -38,10 +33,8 @@
                         <label>Duration</label>
                         <input type="text" class="form-control app-input" formControlName="duration"
                             placeholder="duration" [ngClass]="{ 'is-invalid': submitted && duration?.errors }">
-                        <div *ngIf="submitted && duration?.errors" class="invalid-feedback">
-                            <div *ngIf="duration?.errors?.['required']">
-                                duration is required
-                            </div>
+                        <div *ngIf="submitted && duration?.errors?.['required']" class="invalid-feedback">
+                            duration is required
                         </div>
                         <h6>Duration: <span>00:00 houre</span></h6>
                     </div>
@@ -60,8 +53,5 @@
                     </div>
                 </div>
             </div>
-
-        </div>
     </div>
-
 </form>

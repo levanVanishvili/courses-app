@@ -11,7 +11,7 @@ export class TogglePasswordDirective {
     const parent = this.el.nativeElement.parentNode;
     const span = document.createElement('i');
     span.setAttribute('class','bi bi-eye-slash-fill')
-    span?.addEventListener('click', () => {
+    span.addEventListener('click', () => {
       this.toggle(span);
     });
     parent.appendChild(span);

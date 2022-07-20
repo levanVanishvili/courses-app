@@ -5,13 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
   public searchField: string = ''
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
   public onSubmit() {
     console.log(this.searchField);
