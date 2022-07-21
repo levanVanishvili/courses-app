@@ -1,1 +1,57 @@
-<p>course works!</p>
+<form class="app-course" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group row">
+        <label for="formControlTitle">Title</label>
+        <div class="col-10">
+            <input type="text" class="form-control" formControlName="title" id="exampleFormControlInput1"
+                placeholder="title" [ngClass]="{ 'is-invalid': submitted && title?.errors }">
+                <div *ngIf="submitted && title?.errors?.['required']" class="invalid-feedback">
+                    title is required
+                </div>
+        </div>
+        <div class="form-group col-2">
+            <button type="submit" class="btn btn-primary">Create Course</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="formControlDescription">Description</label>
+        <textarea class="form-control" formControlName="description" id="exampleFormControlTextarea1" rows="6"
+            [ngClass]="{ 'is-invalid': submitted && description?.errors }"></textarea>
+        <div *ngIf="submitted && description?.errors?.['required']" class="invalid-feedback">
+            description is required
+        </div>
+    </div>
+    <div class="app-add-author form-group">
+            <div class="row">
+                <div class="row col-6">
+                    <h1 class="app-author">Add author</h1>
+                    <label>Author Name</label>
+                    <input type="text" class="form-control app-input" formControlName="authorName"
+                        placeholder="author name">
+                    <app-button class="app-button" [buttonText]="'Çreate author'"></app-button>
+                    <h2 class="app-duration">Duration</h2>
+                    <div class="form-group">
+                        <label>Duration</label>
+                        <input type="text" class="form-control app-input" formControlName="duration"
+                            placeholder="duration" [ngClass]="{ 'is-invalid': submitted && duration?.errors }">
+                        <div *ngIf="submitted && duration?.errors?.['required']" class="invalid-feedback">
+                            duration is required
+                        </div>
+                        <h6>Duration: <span>00:00 houre</span></h6>
+                    </div>
+                </div>
+                <div class="row col-6">
+                    <h1 class="app-author">Author List</h1>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control app-input disabled" formControlName="authors" >
+                            </div>
+                            <div class="col">
+                                <app-button class="app-button" [buttonText]="'Delete author'"></app-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</form>

@@ -1,0 +1,26 @@
+.app-course {
+    background-color: #fff;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+    border: 3px solid green;
+    box-shadow: 0px 1px 2px #DDDDE3,
+          0px 2px 4px #DDDDE3;
+}
+.app-add-author {
+    background-color: #fff;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+    border: 3px solid #d8d8d8;
+    border-color: rgb(47, 49, 47);
+    box-shadow: 0px 1px 2px #DDDDE3,
+          0px 2px 4px #DDDDE3;
+}
+h1, h2 {
+    text-align: center;
+}
+
+.app-input{
+    width: 50%;
+}

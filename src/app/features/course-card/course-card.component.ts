@@ -21,12 +21,12 @@ export class CourseCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public transDurationToHours(number: number) {
+  /* public transDurationToHours(number: number) {
     const hoursValue = Math.floor(number / 60);
     const minutes = Math.floor(number % 60);
     const hours = hoursValue < 10? '0' + hoursValue : hoursValue;
     return  hours + ':' + minutes + ' hours';
-  }
+  } */
 
   public onDelete(id: string) {
     this.deleteCard.emit(id)
