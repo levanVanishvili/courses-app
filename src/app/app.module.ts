@@ -11,6 +11,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistrationComponent } from './features/registration/registration.component';
 import { CourseModule } from './features/course/course.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthorizedGuard } from './auth/guards/authorized.guard';
+import { NotAuthorizedGuard } from './auth/guards/not-authorized.guard';
+import { AdminGuard } from './user/guards/admin.guard';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule  
   ],
-  providers: [Window],
+  providers: [Window, AuthorizedGuard, NotAuthorizedGuard, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
