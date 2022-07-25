@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CourseCard } from './course-card';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-course-card',
@@ -9,24 +10,17 @@ import { faPen } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./course-card.component.scss']
 })
 export class CourseCardComponent implements OnInit {  
-  @Input() public courseCards?: CourseCard[];
+  @Input() public courseCards: CourseCard[] = [];
   @Output() public deleteCard = new EventEmitter<string>();
   @Output() public editCard = new EventEmitter<string>();
   public isCourseCardEditable = false;  
   faTrash = faTrash;
   faPen = faPen
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-
-  /* public transDurationToHours(number: number) {
-    const hoursValue = Math.floor(number / 60);
-    const minutes = Math.floor(number % 60);
-    const hours = hoursValue < 10? '0' + hoursValue : hoursValue;
-    return  hours + ':' + minutes + ' hours';
-  } */
 
   public onDelete(id: string) {
     this.deleteCard.emit(id)
@@ -34,5 +28,10 @@ export class CourseCardComponent implements OnInit {
 
   public onEdit(id: string) {
     this.editCard.emit(id)
+  }
+
+  public onButtonClick() {
+    //this.router.navigateByUrl('/courses/course-card')
+
   }
 }

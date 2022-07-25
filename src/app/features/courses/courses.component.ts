@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { mockedCourseList } from './mocks';
 import { CourseCard } from "../course-card/course-card";
+import { CoursesStoreService } from 'src/app/services/courses-store.service';
 
 @Component({
   selector: 'app-courses',
@@ -11,12 +12,15 @@ export class CoursesComponent implements OnInit {
   public courses: CourseCard [] = [];
   public courseListIsEmpty: boolean = true;
 
-  constructor() { 
+  constructor(private coursesService: CoursesStoreService) { 
     
   }
 
   ngOnInit(): void {
-    this.courses = mockedCourseList;
+    this.coursesService.getAllCourses().subscribe(value => {
+      this.courses = value;
+      console.log(this.courses, value)
+    });
     this.courses.length > 1 ? this.courseListIsEmpty = false : this.courseListIsEmpty 
   }
   

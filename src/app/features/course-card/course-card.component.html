@@ -8,7 +8,7 @@
         <h6>Authors: <span>{{courseCard.authors}}</span></h6>
         <h6>Duration: <span>{{courseCard.duration | duration }}</span></h6>
         <h6>Created: <span>{{courseCard.creationDate | creationDate}}</span></h6>
-        <app-button class="btn-show-courses" [buttonText]="'Show Courses'"></app-button>
+        <app-button class="btn-show-courses" [buttonText]="'Show Course'" (click)="onButtonClick()"></app-button>
         <ng-container *ngIf="!courseCard.isEditable; else courseCardEditable"></ng-container>
         <ng-template #courseCardEditable>
             <button class="btn-edit-courses" (click)="onEdit(courseCard.id)">
