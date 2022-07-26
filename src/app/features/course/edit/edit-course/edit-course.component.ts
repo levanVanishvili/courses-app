@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { CourseCard } from 'src/app/features/course-card/course-card';
 import { CoursesStoreService } from 'src/app/services/courses-store.service';
-import { CourseCard } from '../course-card/course-card';
 
 @Component({
-  selector: 'app-course',
-  templateUrl: './course.component.html',
-  styleUrls: ['./course.component.scss']
+  selector: 'app-edit-course',
+  templateUrl: './edit-course.component.html',
+  styleUrls: ['./edit-course.component.scss']
 })
-export class CourseComponent implements OnInit {
+export class EditCourseComponent implements OnInit {
   public form!: FormGroup;
   public course!: CourseCard;
   public isAddMode: boolean = true;
@@ -62,7 +62,7 @@ export class CourseComponent implements OnInit {
 
   }
 
-  public onSubmit(){
+  public onEditSubmit(){
     if(this.form.invalid){
       return;
     }
@@ -75,6 +75,7 @@ export class CourseComponent implements OnInit {
       descritpion: this.description
     } as unknown as CourseCard
 
-    this.coursesService.createCourse(this.course).subscribe();
+    this.coursesService.editCourse(this.course.id, this.course).subscribe();
   }
+
 }

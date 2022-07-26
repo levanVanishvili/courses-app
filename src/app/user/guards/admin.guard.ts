@@ -12,7 +12,7 @@ export class AdminGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       if(this.user.isAdmin$) {
-        this.router.navigateByUrl('/courses');
+        this.router.createUrlTree(['/courses']);
       }
     return true;
   }

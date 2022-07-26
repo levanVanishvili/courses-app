@@ -13,7 +13,6 @@ import { CoursesRoutingModule } from './courses-routing.module';
   declarations: [
     CoursesComponent,
     InfoComponent,
-    ModalWindowComponent
   ],
   imports: [
     CommonModule, 
