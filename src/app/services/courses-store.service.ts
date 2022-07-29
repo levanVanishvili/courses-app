@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, finalize, Observable } from 'rxjs';
 import { CourseCard } from '../features/course-card/course-card';
 import { CoursesService } from './courses.service';
 
@@ -15,7 +15,12 @@ export class CoursesStoreService {
   constructor(private coursesService: CoursesService) { }
 
   getAllCourses() {
-    return this.coursesService.getAll();
+    this.isLoading$$.next(true);
+    return this.coursesService.getAll().pipe(
+        finalize(() => {
+            this.isLoading$$.next(false);
+        })
+    );
   }
 
   createCourse(course: CourseCard) {

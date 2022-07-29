@@ -12,12 +12,10 @@ export class AuthorizedGuard implements CanLoad {
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(this.auth.isUserLoggedIn()){
-        this.router.createUrlTree(['/courses'])
+      if(this.auth.isAuthorized$){
         return true;
       }else {
-        this.router.createUrlTree(['/login']);
-        return false
+        return this.router.createUrlTree(['/login']);
       }
   }
 }

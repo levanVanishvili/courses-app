@@ -11,6 +11,7 @@ import { CreationDatePipe } from './pipes/creation-date.pipe';
 import { StringJoinerPipe } from './pipes/string-joiner.pipe';
 import { TogglePasswordDirective } from './directives/toggle-password.directive';
 import { ControlErrorDirective } from './directives/control-error.directive';
+import { PageNotFoundModule } from './components/page-not-found/page-not-found.module';
 
 
 
@@ -29,6 +30,7 @@ import { ControlErrorDirective } from './directives/control-error.directive';
     ButtonModule,
     SearchModule,
     FormsModule,
+    PageNotFoundModule
   ],
   exports: [
     ButtonComponent,

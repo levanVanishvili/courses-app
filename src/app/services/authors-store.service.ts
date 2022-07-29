@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, finalize } from 'rxjs';
 import { Author } from './author';
 import { AuthorsService } from './authors.service';
 
@@ -10,27 +10,32 @@ export class AuthorsStoreService {
   private authors$$ = new BehaviorSubject(this.getAllAuthors);
   private isLoading$$ = new BehaviorSubject(false);
   public authors$ = this.authors$$.asObservable();
-  public isLoading$ = this.isLoading$$.asObservable();
+  isLoading$ = this.isLoading$$.asObservable();
 
   constructor(private authorsService: AuthorsService) { }
 
   getAllAuthors() {
-    return this.authorsService.getAll();
+    this.isLoading$$.next(true);
+    return this.authorsService.getAll().pipe(
+        finalize(() => {
+            this.isLoading$$.next(false);
+        })
+    );
   }
 
-  createCourse(author: Author) {
+  createAuthor(author: Author) {
     return this.authorsService.createAuthor(author);
   }
 
-  editCourse(id: string, author: Author) {
+  editAuthor(id: string, author: Author) {
     return this.authorsService.editAuthor(id, author);
   }
 
-  getCourse(id: string) {
+  getAuthor(id: string) {
     return this.authorsService.getAuthor(id);
   }
 
-  deleteCourse(id: string) {
+  deleteAuthor(id: string) {
     return this.authorsService.deleteAuthor(id);
   }
 }

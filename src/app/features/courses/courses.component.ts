@@ -21,7 +21,7 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit(): void {
     this.coursesService.getAllCourses().subscribe(response => {
-      this.courses = response as unknown as CourseCard[];
+      this.courses = response;
     });
     this.courses.length > 1 ? this.courseListIsEmpty = false : this.courseListIsEmpty 
   }

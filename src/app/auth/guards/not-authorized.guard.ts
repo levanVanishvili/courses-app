@@ -11,12 +11,10 @@ export class NotAuthorizedGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(!this.auth.isUserLoggedIn()){
-        this.router.createUrlTree(['/login']);
+      if(!this.auth.isAuthorized$){
         return true;
       }else {
-        this.router.createUrlTree(['/courses']);
-        return false
+        return this.router.createUrlTree(['/courses']);
       }
   }  
 }

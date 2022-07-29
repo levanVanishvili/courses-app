@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SessionStorageService } from './session-storage.service';
+import { User } from 'src/app/user/user';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private isloggedIn: boolean = false;
+  private isAuthorized$$ = new BehaviorSubject(this.login);
+  public isAuthorized$ = this.isAuthorized$$.asObservable();
 
   constructor(private http: HttpClient,
     private sessionStorage: SessionStorageService) { }
@@ -16,7 +19,6 @@ export class AuthService {
     return this.http.post(url, user).subscribe((data: any) => {
       if (data.successful){
         this.sessionStorage.setToken(data.result);
-        this.isloggedIn = true;
       }
     });
   }
@@ -31,14 +33,4 @@ export class AuthService {
     const url = 'http://localhost:4000/register';
     return this.http.post(url, user);    
   }
-
-  isUserLoggedIn(): boolean {
-    return this.isloggedIn;
-  }
-}
-
-interface User {
-  name: string,
-  email: string,
-  password: string
 }

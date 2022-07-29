@@ -6,6 +6,7 @@ import { CourseComponent } from './features/course/course.component';
 import { CoursesComponent } from './features/courses/courses.component';
 import { LoginComponent } from './features/login/login.component';
 import { RegistrationComponent } from './features/registration/registration.component';
+import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 import { AdminGuard } from './user/guards/admin.guard';
 
 const routes: Routes = [
@@ -19,6 +20,15 @@ const routes: Routes = [
     component: CoursesComponent,
     canLoad: [AuthorizedGuard],
     children: [
+      {
+        path: 'courses',
+        loadChildren: () => import('./features/courses/courses.module').then((modules) => modules.CoursesModule)
+      },
+      {
+        path: ':id',
+        component: CourseComponent,
+        canActivate: [AdminGuard]
+      },
       {
         path: 'add',
         component: CourseComponent,
@@ -40,6 +50,10 @@ const routes: Routes = [
     path: 'registration',
     component: RegistrationComponent,
     canActivate: [NotAuthorizedGuard]     
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent,
   }
 ];
 
