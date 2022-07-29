@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -13,6 +13,7 @@ export class ModalWindowComponent implements OnInit {
   @Input() modalMessage?: string;
   @Input() okButtonText?: string;
   @Input() cancelButtonText?: string;
+  @Output() public deleteCourse = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -22,5 +23,7 @@ export class ModalWindowComponent implements OnInit {
     this.okButtonText = 'Ok';
     this.cancelButtonText = 'Cancel';
   }
-
+  public onOkButtonClick() {
+    this.deleteCourse.emit(true);
+  }
 }

@@ -8,8 +8,8 @@
         <h6>Authors: <span>{{courseCard.authors}}</span></h6>
         <h6>Duration: <span>{{courseCard.duration | duration }}</span></h6>
         <h6>Created: <span>{{courseCard.creationDate | creationDate}}</span></h6>
-        <app-button class="btn-show-courses" [buttonText]="'Show Courses'"></app-button>
-        <ng-container *ngIf="!courseCard.isEditable; else courseCardEditable"></ng-container>
+        <app-button class="btn-show-courses" [buttonText]="'Show Course'" (click)="onButtonClick(courseCard.id)"></app-button>
+        <ng-container *ngIf="!isUserAdmin; else courseCardEditable"></ng-container>
         <ng-template #courseCardEditable>
             <button class="btn-edit-courses" (click)="onEdit(courseCard.id)">
                 <fa-icon [icon]="faPen"></fa-icon>
@@ -20,3 +20,4 @@
         </ng-template>
     </div>
 </div>
+<app-modal-window (deleteCourse)="onDeleteCourse($event)"></app-modal-window>

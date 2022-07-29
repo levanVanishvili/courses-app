@@ -1,6 +1,6 @@
 <!-- for testing modal window -->
-<button onclick="document.getElementById('id').style.display='block'">Open Modal</button>
-
+<!-- <button onclick="document.getElementById('id').style.display='block'">Open Modal</button>
+ -->
 <div id="id" class="modal">
     <!-- for testing modal window -->
   <span onclick="document.getElementById('id').style.display='none'" class="close" title="Close Modal"><fa-icon [icon]="faXmark"></fa-icon></span>
@@ -10,7 +10,7 @@
       <p>{{modalMessage}}</p>
 
       <div class="clearfix">
-        <app-button type="button" [buttonText]="okButtonText"></app-button>
+        <app-button type="button" [buttonText]="okButtonText" (click)="onOkButtonClick()"></app-button>
         <app-button type="button" [buttonText]="cancelButtonText"></app-button>
       </div>
     </div>

@@ -1,4 +1,4 @@
-<form class="app-course" [formGroup]="form" (ngSubmit)="onSubmit()">
+<form class="app-course" [formGroup]="form" (ngSubmit)="onEditSubmit()">
     <div class="form-group row">
         <label for="formControlTitle">Title</label>
         <div class="col-10">
@@ -9,7 +9,7 @@
                 </div>
         </div>
         <div class="form-group col-2">
-            <button type="submit" class="btn btn-primary" type="submit">Create Course</button>
+            <button type="submit" class="btn btn-primary" type="submit">Edit Course</button>
         </div>
     </div>
     <div class="form-group">

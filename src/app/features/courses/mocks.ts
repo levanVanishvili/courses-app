@@ -12,7 +12,6 @@ export const mockedCourseList: CourseCard[] = [
     creationDate: new Date(),
     duration: 160,
     authors: ["Vasiliy Dobkin", "Nicolas Kim"],
-    isEditable: true
   },
   {
     id: "b5630fdd-7bf7-4d39-b75a-2b5906fd0916",
@@ -23,7 +22,6 @@ export const mockedCourseList: CourseCard[] = [
     creationDate: new Date(),
     duration: 210,
     authors: ["Anna Sidorenko", "Valentina Larina"],
-    isEditable: false
   },
   {
     id: "de5aaa59-90f5-4dbc-b629-aaf205c551ba",
@@ -36,7 +34,6 @@ export const mockedCourseList: CourseCard[] = [
     creationDate: new Date(),
     duration: 1024,
     authors: [ "Nicolas Kim kardash"],
-    isEditable: true
   },
   {
     id: "de5aaa59-90f5-4dbc-b8a9-aaf205c571ba",
@@ -49,6 +46,5 @@ export const mockedCourseList: CourseCard[] = [
     creationDate: new Date(),
     duration: 520,
     authors: ["Vasiliy Dob"],
-    isEditable: true
   }
 ];

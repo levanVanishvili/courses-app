@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { mockedCourseList } from './mocks';
 import { CourseCard } from "../course-card/course-card";
+import { CoursesStoreService } from 'src/app/services/courses-store.service';
+import {Router } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
@@ -9,22 +11,27 @@ import { CourseCard } from "../course-card/course-card";
 })
 export class CoursesComponent implements OnInit {
   public courses: CourseCard [] = [];
-  public courseListIsEmpty: boolean = true;
+  public courseListIsEmpty: boolean = false;
 
-  constructor() { 
+  constructor(
+    private coursesService: CoursesStoreService, 
+    private router: Router) { 
     
   }
 
   ngOnInit(): void {
-    this.courses = mockedCourseList;
+    this.coursesService.getAllCourses().subscribe(response => {
+      this.courses = response;
+    });
     this.courses.length > 1 ? this.courseListIsEmpty = false : this.courseListIsEmpty 
   }
   
-  public onDeleteCard(id: string){
-    alert('Are you sure you want to Delete? ');
+  public onDeleteCard(id: string) {
+    this.coursesService.deleteCourse(id);
+    this.router.navigateByUrl('/courses');
   }
 
   public onEditCard(id: string) {
-    alert('Are you sure you want to Edit? ');
+    this.router.navigate(['/courses/edit', id]);
   }
 }
