@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthStateFacade } from 'src/app/auth/store/auth.facade';
+import { User } from 'src/app/user/user';
 
 @Component({
   selector: 'app-registration',
@@ -10,7 +12,8 @@ export class RegistrationComponent implements OnInit {
   public userForm!: FormGroup;
   public submitted: boolean = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+    private authStateFacade: AuthStateFacade) { }
 
   ngOnInit(): void {
 
@@ -34,15 +37,12 @@ export class RegistrationComponent implements OnInit {
     return this.userForm.get('password');
   }
 
-  onSubmit() {
+  onSubmit(user: User) {
     this.submitted = true;
 
     if (this.userForm.invalid) {
-      return;
+      return this.authStateFacade.register(user);
     }
-    if(this.userForm.valid){
-      alert('User form is valid!!')
-    } 
   }
 
 }

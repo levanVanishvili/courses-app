@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CoursesStoreService } from 'src/app/services/courses-store.service';
+import { CoursesStateFacade } from 'src/app/store/courses/courses.facade';
 import { CourseCard } from '../course-card/course-card';
 
 @Component({
@@ -18,7 +19,8 @@ export class CourseComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private coursesService: CoursesStoreService, 
-    private formBuilder: FormBuilder,) {    
+    private formBuilder: FormBuilder,
+    private coursesStateFacade: CoursesStateFacade) {    
     }
 
   public get title() {
@@ -44,9 +46,10 @@ export class CourseComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
 
-    this.coursesService.getCourse(id!).subscribe(
+    /* this.coursesService.getCourse(id!).subscribe(
       val => {this.course = val}
-    )
+    ) */
+    this.course = this.coursesStateFacade.getSingleCourse(id!) as unknown as CourseCard
 
     this.buildForm();
   }
@@ -75,6 +78,7 @@ export class CourseComponent implements OnInit {
       descritpion: this.description
     } as unknown as CourseCard
 
-    this.coursesService.createCourse(this.course).subscribe();
+    //this.coursesService.createCourse(this.course).subscribe();
+    this.coursesStateFacade.createCourse(this.course);
   }
 }
