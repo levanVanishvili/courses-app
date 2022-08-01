@@ -16,11 +16,12 @@ export class AuthService {
 
   login(user: User) {
     const url = 'http://localhost:4000/login';
-    return this.http.post(url, user).subscribe((data: any) => {
+    this.http.post(url, user).subscribe((data: any) => {
       if (data.successful){
         this.sessionStorage.setToken(data.result);
       }
     });
+    return this.http.post(url, user);
   }
 
   logOut(token: string) {
