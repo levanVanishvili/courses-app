@@ -11,11 +11,11 @@ export class AuthorsStateFacade {
 
     constructor(private store: Store) { }
 
-    getAuthors () {
+    getAuthors() {
         this.store.dispatch(requestAuthors());
     };
 
-    register(author: Author) {
+    addAuthor(author: Author) {
         this.store.dispatch(requestAddAuthor({ author: author }));
     };
 }

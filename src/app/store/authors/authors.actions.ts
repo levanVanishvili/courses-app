@@ -1,6 +1,5 @@
 import { createAction, props } from "@ngrx/store";
 import { Author } from "src/app/services/author";
-import { User } from "src/app/user/user";
 
 export const requestAuthors = createAction(
     '[Authors API] request Authors'
